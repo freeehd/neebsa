@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 
 export default function CursorEffect() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -22,7 +22,7 @@ export default function CursorEffect() {
     }
   }, [])
 
-  const variants = {
+  const variants: Variants = {
     default: {
       x: mousePosition.x - 16,
       y: mousePosition.y - 16,
@@ -33,7 +33,7 @@ export default function CursorEffect() {
       x: mousePosition.x - 75,
       y: mousePosition.y - 75,
       backgroundColor: "pink",
-      mixBlendMode: "difference",
+      mixBlendMode: "difference" as const,
     },
   }
 
