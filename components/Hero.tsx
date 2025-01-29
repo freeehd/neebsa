@@ -3,10 +3,17 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-const AnimatedText = ({ text, className = "" }) => {
+import type React from "react" // Added import for React
+
+interface AnimatedTextProps {
+  text: string
+  className?: string
+}
+
+const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = "" }) => {
   return (
     <motion.span
-      className={`inline-block ${className}`}
+      className={className}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
