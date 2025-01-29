@@ -9,12 +9,12 @@ import { Button } from "@/components/ui/button"
 export default function Contact() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "" })
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
     // Here you would typically send the form data to your server
     console.log("Form submitted:", formState)

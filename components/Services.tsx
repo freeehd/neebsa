@@ -11,7 +11,7 @@ const services = [
   { name: "Bridal Beauty", description: "Elegant looks for your special day", icon: "👰" },
 ]
 
-const ServiceCard = ({ service }) => {
+const ServiceCard = ({ service }: { service: typeof services[number] }) => {
   return (
     <motion.div whileHover={{ scale: 1.05 }} className="flex flex-col items-center">
       <Card className="w-full bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow rounded-lg border-none">
