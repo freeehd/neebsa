@@ -1,8 +1,15 @@
 "use client"
 
 import { motion } from "framer-motion"
+import type React from "react" // Import React
 
-const testimonials = [
+interface Testimonial {
+  name: string
+  quote: string
+  emoji: string
+}
+
+const testimonials: Testimonial[] = [
   { name: "Lily", quote: "I felt like a real-life princess after my makeover!", emoji: "👸" },
   {
     name: "Sophia",
@@ -12,11 +19,18 @@ const testimonials = [
   { name: "Emma", quote: "Cutesy Makeup made me feel adorable and confident. Best experience ever!", emoji: "🥰" },
 ]
 
-const TestimonialCard = ({ testimonial }) => (
-  <motion.div className="blob bg-white bg-opacity-70 p-6 shadow-md depth-shadow" whileHover={{ scale: 1.05 }}>
-    <p className="text-lg mb-4 text-pink-700 italic">"{testimonial.quote}"</p>
+interface TestimonialCardProps {
+  testimonial: Testimonial
+}
+
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => (
+  <motion.div
+    className="blob bg-white bg-opacity-70 p-6 shadow-md depth-shadow rounded-lg"
+    whileHover={{ scale: 1.05 }}
+  >
+    <p className="text-lg mb-4 text-pink-700 italic">{testimonial.quote}</p>
     <div className="flex items-center justify-end">
-      <p className="font-semibold text-pink-500 mr-2">- {testimonial.name}</p>
+      <p className="font-semibold text-pink-500 mr-2">{testimonial.name}</p>
       <span className="text-2xl">{testimonial.emoji}</span>
     </div>
   </motion.div>
