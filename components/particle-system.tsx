@@ -29,8 +29,8 @@ export function ParticleSystem({ className, mousePosition }: ParticleSystemProps
       speedY: number
 
       constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
+        this.x = Math.random() * (canvas?.width || 0)
+        this.y = Math.random() * (canvas?.height || 0)
         this.size = Math.random() * 3 + 1
         this.speedX = Math.random() * 3 - 1.5
         this.speedY = Math.random() * 3 - 1.5
@@ -64,14 +64,20 @@ export function ParticleSystem({ className, mousePosition }: ParticleSystemProps
     }
 
     function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      if (ctx) {
+        if (canvas) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
+        }
+      }
       handleParticles()
       requestAnimationFrame(animate)
     }
 
     function resizeCanvas() {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      if (canvas) {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      }
     }
 
     resizeCanvas()
