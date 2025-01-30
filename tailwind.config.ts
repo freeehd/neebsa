@@ -1,9 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: ["class"],
-	content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+	content: [
+	  "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+	  "./components/**/*.{js,ts,jsx,tsx,mdx}",
+	  "./app/**/*.{js,ts,jsx,tsx,mdx}",
+	],
 	theme: {
 	  extend: {
+		fontFamily: {
+		  sans: ["Satoshi", "sans-serif"],
+		},
 		colors: {
 		  border: "hsl(var(--border))",
 		  input: "hsl(var(--input))",
@@ -38,10 +45,6 @@ module.exports = {
 			DEFAULT: "hsl(var(--card))",
 			foreground: "hsl(var(--card-foreground))",
 		  },
-		},
-		fontFamily: {
-		  heading: ["Cormorant Garamond", "serif"],
-		  body: ["Montserrat", "sans-serif"],
 		},
 		borderRadius: {
 		  lg: "var(--radius)",

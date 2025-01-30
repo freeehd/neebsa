@@ -1,27 +1,36 @@
 "use client"
-import dynamic from "next/dynamic"
-import Header from "@/components/Header"
-import Hero from "@/components/Hero"
-import Services from "@/components/Services"
-import Gallery from "@/components/Gallery"
-import Testimonials from "@/components/Testimonials"
-import Contact from "@/components/Contact"
-import Footer from "@/components/Footer"
 
-const ThemeSwitcher = dynamic(() => import("@/components/ThemeSwitcher"), { ssr: false })
+import { useEffect, useRef, useState } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { VideoBackground } from "@/components/video-background"
+import { NavBar } from "@/components/nav-bar"
+import { HeroSection } from "@/components/hero-section"
+import { FeaturedProducts } from "@/components/featured-products"
+import { ProductShowcase } from "@/components/product-showcase"
+import { Testimonials } from "@/components/testimonials"
+import { AboutUs } from "@/components/about-us"
+import { Footer } from "@/components/footer"
 
 export default function Home() {
+  const { scrollYProgress } = useScroll()
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
   return (
-    <main className="min-h-screen overflow-hidden relative">
-      <ThemeSwitcher />
-      <Header />
-      <Hero />
-      <Services />
-      <Gallery />
-      <Testimonials />
-      <Contact />
+    <div className="relative bg-neutral-950 text-neutral-100">
+      <NavBar />
+      <main>
+        <section className="relative h-screen">
+          <VideoBackground />
+          <motion.div className="absolute inset-0 bg-black/30" style={{ opacity }} />
+          <HeroSection />
+        </section>
+        <FeaturedProducts />
+        <ProductShowcase />
+        <Testimonials />
+        <AboutUs />
+      </main>
       <Footer />
-    </main>
+    </div>
   )
 }
 
