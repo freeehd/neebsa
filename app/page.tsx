@@ -7,9 +7,9 @@ import { NavBar } from "@/components/nav-bar"
 import { HeroSection } from "@/components/hero-section"
 import { FeaturedProducts } from "@/components/featured-products"
 import { ProductShowcase } from "@/components/product-showcase"
-import { Testimonials } from "@/components/testimonials"
+import { Testimonials } from "@/components/Testimonials"
 import { AboutUs } from "@/components/about-us"
-import { Footer } from "@/components/footer"
+import { Footer } from "@/components/Footer"
 
 export default function Home() {
   const { scrollYProgress } = useScroll()
