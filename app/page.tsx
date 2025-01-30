@@ -25,6 +25,7 @@ export default function Home() {
           <HeroSection />
         </section>
         <FeaturedProducts />
+        
         <ProductShowcase />
         <Testimonials />
         <AboutUs />
