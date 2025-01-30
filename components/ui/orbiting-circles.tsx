@@ -50,8 +50,6 @@ export function OrbitingCircles({ children, iconSize = 24, radius = 100 }: Orbit
             }}
           >
             {React.cloneElement(child as React.ReactElement, {
-              size: iconSize * 0.6,
-              className: "text-[#FF99F0]",
             })}
           </motion.div>
         )
